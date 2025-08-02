@@ -38,7 +38,7 @@ if st.button("AIで判定する"):
 
             # ✅ 新バージョンの呼び出し方（v1.0以降対応）
             response = openai.chat.completions.create(
-                model="gpt-4-turbo",
+                model="gpt-3.5-turbo",
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.2,
             )
