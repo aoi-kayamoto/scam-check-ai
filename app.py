@@ -1,6 +1,5 @@
 import streamlit as st
-from openai import OpenAI
-
+import openai
 st.set_page_config(page_title="詐欺案件チェックAI", page_icon="🕵️‍♀️")
 st.title("🕵️‍♀️ 詐欺案件チェックAI")
 st.write("タイトル・内容・あなたの考えを入力すると、AIが応募OKか判定します。")
