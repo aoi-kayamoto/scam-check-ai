@@ -1,5 +1,5 @@
 import streamlit as st
-import openai  # ✅ 修正：OpenAIではなくopenai
+import openai
 
 st.set_page_config(page_title="詐欺案件チェックAI", page_icon="🕵️‍♀️")
 st.title("🕵️‍♀️ 詐欺案件チェックAI")
@@ -9,7 +9,7 @@ title = st.text_input("🔹案件タイトル")
 body = st.text_area("🔹案件の内容（コピペ）")
 user_opinion = st.text_area("🔹あなたの考え・不安な点（空欄だと判定できません）")
 
-openai.api_key = st.secrets["OPENAI_API_KEY"]  # ✅ ここも修正
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 if st.button("AIで判定する"):
     if not user_opinion.strip():
@@ -35,11 +35,10 @@ if st.button("AIで判定する"):
 3. アドバイス（迷っている人への一言。優しく・簡潔に）
 4. 応募者の考えに対するフィードバック（前向きで寄り添う言葉で、判断力を肯定しつつ必要があれば補足）
 """
-
             response = openai.ChatCompletion.create(
                 model="gpt-4-turbo",
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.2,
             )
             st.markdown("### ✅ 判定結果")
-            st.write(response.choices[0].message["content"])
+            st.write(response["choices"][0]["message"]["content"])
