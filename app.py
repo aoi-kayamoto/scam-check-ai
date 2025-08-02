@@ -35,10 +35,11 @@ if st.button("AIで判定する"):
 3. アドバイス（迷っている人への一言。優しく・簡潔に）
 4. 応募者の考えに対するフィードバック（前向きで寄り添う言葉で、判断力を肯定しつつ必要があれば補足）
 """
-            response = openai.ChatCompletion.create(
+
+            response = openai.chat.completions.create(
                 model="gpt-4-turbo",
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.2,
             )
             st.markdown("### ✅ 判定結果")
-            st.write(response["choices"][0]["message"]["content"])
+            st.write(response.choices[0].message.content)
