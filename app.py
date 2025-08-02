@@ -1,5 +1,5 @@
 import streamlit as st
-import openai  # ✅ ここ修正
+import openai  # ✅ 修正：OpenAIではなくopenai
 
 st.set_page_config(page_title="詐欺案件チェックAI", page_icon="🕵️‍♀️")
 st.title("🕵️‍♀️ 詐欺案件チェックAI")
